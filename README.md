@@ -7,10 +7,10 @@ It's a simple PHP PDO wrapper for small, single database php project.
 
 * Easy to use.
 * Works with MySQL and Sqlite.
-* All pubic functions works statically.
+* All pubic functions works **statically**.
 * Connection string created internally.
 * Simple functions to get Result set, single row and single value.
-
+* Easy to execute Create/Update/Delete queries.
 
 ### How to use
 
@@ -27,29 +27,29 @@ Db::setConnectionInfo('basecamp','dbuser', 'password', 'mysql',  'http://mysql.a
 Db::setConnectionInfo('path/to/filename.db3', null, null,  'sqlite',);
 ```
 
-Please remember that it will NOT create any connection with the database, yet. Connection will be made on the first time a first query is executed and will be used from them onwards. However, the class will take care of this and you need not bother about it.
+Please remember that it will NOT create any connection with the database, yet. Connection will be made on the first time a query is executed and will be used from then onwards. However, the class will take care of this and you need not bother about it.
 
 You are now ready to run query. For the queries which don't return a result set, you can use Db::execute, this function returns the number of effected rows. The first argument is SQL query (PDO format) and 2nd is optional array of input parameters. Here is an example:
 
 ```
 // Inserting a user
-$user = array('name' =&gt; 'someone', 'pass' =&gt; '123456');
+$user = array('name' =>; 'someone', 'pass' =>; '123456');
 Db::execute('INSERT INTO users(username, password) VALUES(:name, :pass)', $user);
 
 // An update query. You can pass the param directly for single parameter
-$updated = Db::execute(“UPDATE users SET status = 'active' WHERE id = ?”, 4);
+$updated = Db::execute("UPDATE users SET status = 'active' WHERE id = ?", 4);
 ```
 
 For retrieving result sets, you can use a number of functions: `Db::getValue`,  `Db::getRow` and `Db::getResult`. `Db::getValu`e returns value of a single field. `Db::getRow` and `Db::getResult` returns array of a single row (as single dimension) and multiple rows (as 2 dimension ) respectively.  Parameters are same as `Dd::execute` function.
 
 ```
 $totlalUsers = Db::getValue('SELECT COUNT(*) FROM users');
-$aUserName  =  Db::getValue(“SELECT name from users WHERE id = ?”, 4);
-$aUser  =  Db::getRow(“SELECT name, status from users WHERE id = 1”);
-$activeUsers = Db::getResult(“SELECT * from users WHERE status = 'active'”);
+$aUserName  =  Db::getValue("SELECT name from users WHERE id = ?", 4);
+$aUser  =  Db::getRow("SELECT name, status from users WHERE id = 1");
+$activeUsers = Db::getResult("SELECT * from users WHERE status = 'active'");
 ```
 
-See the DbExamples.php file (in downloaded archive) for more examples. There are some other functions available in the class for using transaction, getting insert id etc. See function references for list of all public functions.
+See the DbExamples.php file (in downloaded archive/repo) for more examples. There are some other functions available in the class for using transaction, getting insert id etc. See function references for list of all public functions.
 
 ### Function references
 
