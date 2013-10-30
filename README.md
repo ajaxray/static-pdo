@@ -68,6 +68,7 @@ Here is the list of public (and static as well) functions of this class.
 * `rollbackTransaction()`
 * `setDriverOptions(array $options)` – Set PDO driver options to use while preparing statements.
 
+
 ---
-Anis uddin Ahmad
-http://ajaxray.com
+
+> "This is the Book about which there is no doubt, a guidance for those conscious of Allah" - [Al-Quran](http://quran.com)
