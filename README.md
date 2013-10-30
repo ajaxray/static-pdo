@@ -33,7 +33,7 @@ You are now ready to run query. For the queries which don't return a result set,
 
 ```
 // Inserting a user
-$user = array('name' =>; 'someone', 'pass' =>; '123456');
+$user = array('name' => 'someone', 'pass' => '123456');
 Db::execute('INSERT INTO users(username, password) VALUES(:name, :pass)', $user);
 
 // An update query. You can pass the param directly for single parameter
