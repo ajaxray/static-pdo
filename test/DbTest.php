@@ -14,7 +14,7 @@ class DbTest extends PHPUnit_Extensions_Database_TestCase
 	
 	// Authentication for testing with 
 	private $_mySqlUser = 'root';
-	private $_mySqlPass = 'bismillah';
+	private $_mySqlPass = '123456';
 	private $_mySqlDb   = 'test';
 
     public function  __construct()
