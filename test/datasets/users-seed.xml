@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+        <users id="1" username="anis" password="123456" status="active" />
+        <users id="2" username="raju" password="abcdef" status="banned" />
+</dataset>
