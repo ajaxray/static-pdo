@@ -1,4 +1,7 @@
 <?php
+
+namespace StaticPdo;
+
 /**
  * Db
  *
@@ -13,7 +16,7 @@ class Db
 {
     private static $_pdoObject = null;
 
-    protected static $_fetchMode = PDO::FETCH_ASSOC;
+    protected static $_fetchMode = \PDO::FETCH_ASSOC;
     protected static $_connectionStr = null;
     protected static $_driverOptions = array();
 
@@ -140,10 +143,10 @@ class Db
         }
         
         if(self::$_connectionStr == null) {
-            throw new PDOException('Connection information is empty. Use Db::setConnectionInfo to set them.');
+            throw new \PDOException('Connection information is empty. Use Db::setConnectionInfo to set them.');
         }
 
-        self::$_pdoObject = new PDO(self::$_connectionStr, self::$_username, self::$_password, self::$_driverOptions);
+        self::$_pdoObject = new \PDO(self::$_connectionStr, self::$_username, self::$_password, self::$_driverOptions);
     }
 
     /**
@@ -163,14 +166,14 @@ class Db
 
         if (! $statement) {
             $errorInfo = self::$_pdoObject->errorInfo();
-            throw new PDOException("Database error [{$errorInfo[0]}]: {$errorInfo[2]}, driver error code is $errorInfo[1]");
+            throw new \PDOException("Database error [{$errorInfo[0]}]: {$errorInfo[2]}, driver error code is $errorInfo[1]");
         }
 
         $paramsConverted = (is_array($params) ? ($params) : (array ($params )));
 
         if ((! $statement->execute($paramsConverted)) || ($statement->errorCode() != '00000')) {
             $errorInfo = $statement->errorInfo();
-            throw new PDOException("Database error [{$errorInfo[0]}]: {$errorInfo[2]}, driver error code is $errorInfo[1]");
+            throw new \PDOException("Database error [{$errorInfo[0]}]: {$errorInfo[2]}, driver error code is $errorInfo[1]");
         }
 
         return $statement;
