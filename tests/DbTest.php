@@ -1,6 +1,6 @@
 <?php
-require_once 'PHPUnit/Extensions/Database/TestCase.php';
-require_once '../Db.php';
+
+use StaticPdo\Db;
 
 /**
  * Test class for Db.
@@ -14,7 +14,7 @@ class DbTest extends PHPUnit_Extensions_Database_TestCase
 	
 	// Authentication for testing with 
 	private $_mySqlUser = 'root';
-	private $_mySqlPass = '123456';
+	private $_mySqlPass = 'root*';
 	private $_mySqlDb   = 'test';
 
     public function  __construct()

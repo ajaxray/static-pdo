@@ -1,8 +1,10 @@
 <?php
-require_once 'Db.php';
+require_once 'src/StaticPdo/Db.php';
+
+use StaticPdo\Db;
 
 // Set your connection info here
-Db::setConnectionInfo('test', 'root', '');
+Db::setConnectionInfo('test', 'root', 'root*');
 
 // Creating table for our testing
 $query = "CREATE TABLE IF NOT EXISTS users(

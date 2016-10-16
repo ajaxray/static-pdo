@@ -1,0 +1,22 @@
+{
+    "name": "ajaxray/static-pdo",
+    "description": "Static Pdo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anis uddin Ahmad",
+            "email": "anisniit@gmail.com"
+        }
+    ],
+    "require":{
+        "php": ">=5.3"
+    },
+    "require-dev":{
+        "phpunit/phpunit":"*"
+    },
+    "autoload": {
+        "psr-0": { 
+            "StaticPdo\\": "src/"
+        }
+    }
+}
